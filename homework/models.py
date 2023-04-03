@@ -68,10 +68,10 @@ class Cart:
         Если quantity не передан, то удаляется вся позиция
         Если quantity больше, чем количество продуктов в позиции, то удаляется вся позиция
         """
-        if product in self.products and quantity is None:
+        if product in self.products and quantity is None or quantity >= self.products.get(product):
             self.products.pop(product)
-        elif product in self.products and quantity > product.quantity:
-            self.products.pop(product)
+        elif product in self.products:
+            self.products[product] = self.products.get(product) - quantity
 
     def clear(self):
         self.products.clear()

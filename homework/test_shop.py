@@ -76,11 +76,14 @@ class TestCart:
         cart.add_product(product, summ)
         assert pytest.raises(ValueError), \
             f"An amount greater than {summ} than quantity in stock did not cause an error"
+
     def test_cart_remove_product(self, cart, product):
         amount_first = 666
         amount_second = 100
         cart.add_product(product, amount_first)
+        print(cart.products[product])
         cart.remove_product(product, amount_second)
+        print(cart.products[product])
         assert cart.products[product] == amount_first - amount_second,\
             "Incorrect amount of product in cart"
 
