@@ -22,7 +22,7 @@ class Product:
         TODO Верните True если количество продукта больше или равно запрашиваемому
             и False в обратном случае
         """
-        raise self.quantity >= quantity
+        return self.quantity >= quantity
 
     def buy(self, quantity):
         """

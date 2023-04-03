@@ -111,6 +111,7 @@ class TestCart:
 
         assert cart.get_total_price() == (amount_first + amount_second) * product.price, \
             "Total price is not correct"
+
     def test_cart_buy(self, cart, product):
         amount_first = 11
         amount_second = 66
