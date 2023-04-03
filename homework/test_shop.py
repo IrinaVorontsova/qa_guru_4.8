@@ -66,6 +66,7 @@ class TestCart:
         assert cart.products[product] == summ,\
             f"Quantity of item in cart is not equal to item added {summ}"
 
+        cart.clear()
         summ = 666
         cart.add_product(product, summ)
         assert cart.products[product] == summ, \
