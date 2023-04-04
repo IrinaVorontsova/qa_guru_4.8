@@ -81,9 +81,7 @@ class TestCart:
         amount_first = 666
         amount_second = 100
         cart.add_product(product, amount_first)
-        print(cart.products[product])
         cart.remove_product(product, amount_second)
-        print(cart.products[product])
         assert cart.products[product] == amount_first - amount_second,\
             "Incorrect amount of product in cart"
 
@@ -98,6 +96,13 @@ class TestCart:
         cart.remove_product(product, amount_first)
         assert product not in cart.products,\
              "Product uninstall failed"
+
+        cart.clear()
+        finish_quantity = product.quantity + amount_second - amount_second
+        cart.add_product(product, amount_second)
+        cart.remove_product(product, amount_second)
+        assert product.quantity == finish_quantity, \
+            "Removed incorrect amount of product"
 
     def test_cart_clear(self, cart, product):
         cart.add_product(product, 45)
